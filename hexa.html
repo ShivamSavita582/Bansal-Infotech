@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Hover Hexagons</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #f9f9f9;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      max-width: 600px;
+    }
+
+    .hex {
+      width: 120px;
+      height: 120px;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.5s ease, transform 0.5s ease, color 0.5s ease;
+    }
+
+    /* hover + active दोनों पर same effect */
+    .hex:hover,
+    .hex.active {
+      background: #3498db;
+      color: #fff;
+      transform: scale(1.1);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    }
+  </style>
+</head>
+<body>
+  <h1>
+  Welcome to <span style="color: aqua;" id="changingText">Home</span>
+</h1>
+
+  <!-- <div class="container">
+    <div class="hex">UI/UX</div>
+    <div class="hex">DevOps</div>
+    <div class="hex">React & Next.js</div>
+    <div class="hex">Web Apps</div>
+    <div class="hex">Mobiles</div>
+    <div class="hex">AI/ML</div>
+    <div class="hex">Chatbots</div>
+  </div> -->
+
+  <script>
+    // const hexes = document.querySelectorAll('.hex');
+    // let index = 0;
+
+    // setInterval(() => {
+    //   // सभी से active हटाओ
+    //   hexes.forEach(h => h.classList.remove('active'));
+
+    //   // current div पर active लगाओ
+    //   hexes[index].classList.add('active');
+
+    //   // अगला index
+    //   index = (index + 1) % hexes.length;
+    // }, 1500); // हर 1.5 सेकंड में change होगा
+
+    // let name = 'shivam';
+    // let age = 20;
+
+    // document.write(`my name is ${name} and my age is ${age}`)
+    // बदलने वाले texts की list
+const texts = ["Home", "About", "Services", "Contact"];
+let index = 0;
+
+const spanElement = document.getElementById("changingText");
+
+// हर 2 सेकंड में text बदलो
+setInterval(() => {
+  index = (index + 1) % texts.length; // cycle
+  spanElement.textContent = texts[index];
+}, 2000);
+
+  </script>
+</body>
+</html>

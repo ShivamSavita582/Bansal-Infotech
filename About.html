@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Technologies Tabs Demo</title>
+  <style>
+    .tech-section {
+  text-align: center;
+  padding: 40px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.tab {
+  padding: 10px 20px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.tab.active {
+  background: #1e3a8a;
+  color: #fff;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.item img {
+  width: 60px;
+  height: 60px;
+}
+
+.item p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+  </style>
+</head>
+<body>
+  <section class="tech-section">
+    <h2>Technologies That We Love To Work With</h2>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active">AI & ML</button>
+      <button class="tab">Mobile</button>
+      <button class="tab">Frontend</button>
+      <button class="tab">Database</button>
+      <button class="tab">Backend</button>
+      <button class="tab">Infra & DevOps</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div class="tab-content active">
+      <div class="grid">
+        <div class="item"><img src="tensorflow.png"><p>TensorFlow</p></div>
+        <div class="item"><img src="pytorch.png"><p>PyTorch</p></div>
+        <div class="item"><img src="keras.png"><p>Keras</p></div>
+        <div class="item"><img src="opencv.png"><p>OpenCV</p></div>
+        <div class="item"><img src="numpy.png"><p>NumPy</p></div>
+        <div class="item"><img src="pandas.png"><p>Pandas</p></div>
+      </div>
+    </div>
+
+    <div class="tab-content">
+      <div class="grid">
+        <div class="item"><img src="android.png"><p>Android</p></div>
+        <div class="item"><img src="ios.png"><p>iOS</p></div>
+      </div>
+    </div>
+
+    <div class="tab-content">
+      <div class="grid">
+        <div class="item"><img src="react.png"><p>React</p></div>
+        <div class="item"><img src="angular.png"><p>Angular</p></div>
+        <div class="item"><img src="vue.png"><p>Vue</p></div>
+      </div>
+    </div>
+
+    <div class="tab-content">
+      <div class="grid">
+        <div class="item"><img src="mysql.png"><p>MySQL</p></div>
+        <div class="item"><img src="mongodb.png"><p>MongoDB</p></div>
+      </div>
+    </div>
+
+    <div class="tab-content">
+      <div class="grid">
+        <div class="item"><img src="node.png"><p>Node.js</p></div>
+        <div class="item"><img src="django.png"><p>Django</p></div>
+      </div>
+    </div>
+
+    <div class="tab-content">
+      <div class="grid">
+        <div class="item"><img src="docker.png"><p>Docker</p></div>
+        <div class="item"><img src="aws.png"><p>AWS</p></div>
+        <div class="item"><img src="github.png"><p>GitHub</p></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  const tabs = document.querySelectorAll('.tab');
+const contents = document.querySelectorAll('.tab-content');
+
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => {
+    // reset
+    tabs.forEach(t => t.classList.remove('active'));
+    contents.forEach(c => c.classList.remove('active'));
+
+    // set active
+    tab.classList.add('active');
+    contents[index].classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
